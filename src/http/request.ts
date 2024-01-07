@@ -1,8 +1,9 @@
 import axios from 'axios';
-const service = axios.create({
-    baseURL:'/',
-    timeout:15000
-})
+const service= axios.create({
+    // 这样我们就可以在环境变量中改变 axios 的 baseURL
+    baseURL: import.meta.env.VITE_APP_API_BASEURL,
+      timeout: 15000,
+    });
 
 //axios 实例拦截请求
 service.interceptors.request.use(

@@ -17,6 +17,7 @@ const router=createRouter({
 
 router.beforeEach(async (_to,_from,next)=>{
     NProgress.start();
+    next()
 })
 
 
