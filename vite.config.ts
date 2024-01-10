@@ -1,5 +1,6 @@
 import { defineConfig, loadEnv } from "vite";
 import type { UserConfig, ConfigEnv } from "vite";
+import  {viteMockServe} from 'vite-plugin-mock'
 import { fileURLToPath } from "url";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
@@ -21,6 +22,12 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
             vue(),
             // jsx文件编译插件
             vueJsx(),
+            //开启mock服务器
+            viteMockServe({
+                //如果接口为/mock/xxx 以mock 开头就会被拦截响应配置的内容
+                mockPath:'mock',//数据模拟需要拦截的请求起始URL
+                enable:true,//本地环境是否开启mock功能
+            })
         ],
         // 运行后本地预览的服务器
         server: {
