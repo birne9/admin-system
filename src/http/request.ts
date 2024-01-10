@@ -1,7 +1,7 @@
 import axios from 'axios';
 const service= axios.create({
     // 这样我们就可以在环境变量中改变 axios 的 baseURL
-    baseURL: import.meta.env.VITE_APP_API_BASEURL,
+    baseURL: import.meta.env.VITE_APP_BASE_API,
       timeout: 15000,
     });
 
