@@ -9,7 +9,7 @@ import 'nprogress/nprogress.css'
 //     meta:{},
 //     children: []
 // }]
-const modules:Record<string,any> = import.meta.glob(['./modules/*.ts'],{eager:true});
+const modules:Record<string,any> = import.meta.glob(['./modules/*'],{eager:true});
 //公用的路由 404、error
 export const aboutRouter={
     path:'/about',
