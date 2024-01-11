@@ -25,7 +25,7 @@ module.exports = {
           'refactor',//重构
           'build',//打包
           'ci',//ci部署
-          'chore',//繁杂
+          'chore',//杂项
           'revert',//重置代码
           'wip',//半成品
           'workflow',//工作流
