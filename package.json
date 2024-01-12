@@ -6,8 +6,15 @@
   "scripts": {
     "lint:lint-staged": "lint-staged",
     "prepare": "husky install",
-    "dev": "vite --mode development",
-    "build": "vite build"
+    "dev": "vite --mode dev",
+    "dev:test": "vite --mode test",
+    "dev:stg": "vite --mode stg",
+    "dev:prod": "vite --mode prod",
+    
+    "build": "vite build --mode dev",
+    "build:test": "vite build --mode test",
+    "build:stg": "vite build --mode stg",
+    "build:prod": "vite build --mode prod"
   },
   "repository": {
     "type": "git",
