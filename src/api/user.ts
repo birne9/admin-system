@@ -4,6 +4,9 @@ export type LoginRequest ={
     password: string,
 }
 
+export type reLoginRequest ={
+    accessToken: string,
+}
 
 export type LoginResponse = {
     username: string,
@@ -13,9 +16,9 @@ export type LoginResponse = {
 
 //定义接口
 export const userLogin=async (data?:LoginRequest)=>{
-    return  post<LoginResponse>({},"/user/login",data)
+    return  post<LoginResponse>({},"/login",data)
 }
 
-export const refreshUserInfo = async (data?:LoginRequest)=>{
-    return  post<LoginResponse>({},"/user/refresh",data)
+export const refreshUserInfo = async (data?:reLoginRequest)=>{
+    return  post<LoginResponse>({},"/getUserInfo",data)
 }
