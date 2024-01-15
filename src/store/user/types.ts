@@ -1,6 +1,6 @@
 export interface IUserState {
-    username:string,
+    userName:string,
     accessToken:string,
-    refreshToken:string,
+    refreshToken?:string,
     roles:string[],// 第二种写法泛型 Array<string>
 }
