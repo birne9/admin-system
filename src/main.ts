@@ -1,5 +1,5 @@
 // 引入重置样式
-import './styles/reset.css'
+import '@/styles/index.less'
 import {createApp} from 'vue'
 import App from './App.vue'
 import router from './router'
