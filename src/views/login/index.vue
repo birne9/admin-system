@@ -33,7 +33,11 @@ const rules = reactive({
 });
 
 const userLogin = () => {
-    //   userStore.login(userInfo);
+      userStore.storeUserLogin(userInfo).then((res) => {
+        console.log(res,'res')
+      },(err)=>{
+        console.log(err,'err')
+      });
 };
 </script>
 <style lang="less" scope>

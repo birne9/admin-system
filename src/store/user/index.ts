@@ -15,8 +15,8 @@ export const useUserStoreHook = defineStore('userInfo', {
     }),
     getters:{},
     actions:{
-        storeUserLogin(data: LoginRequest){
-            userLogin(data).then((res)=>{
+        async storeUserLogin(data: LoginRequest){
+          return  userLogin(data).then((res)=>{
                 this.userName = res.username;
                 this.roles = res.roles;
                 this.accessToken = res.accessToken;
@@ -44,7 +44,7 @@ export const useUserStoreHook = defineStore('userInfo', {
     persist:{
         key:'userInfo',
         storage:sessionStorage,
-        paths:['accessToken']
+        paths:['accessToken', 'userName','roles']
     }
   })
 

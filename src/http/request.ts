@@ -5,7 +5,8 @@ import { getMessageInfo } from './status';
 interface BaseResponse <T = any> {
     code : number | string,
     message:string,
-    data:T
+    data:T,
+    status?: number | string;
 }
 const service = axios.create({
     // 这样我们就可以在环境变量中改变 axios 的 baseURL
@@ -27,7 +28,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
     (response: AxiosResponse)=> {
         if(response.status === 200){
-            return response.data
+            return response
         }
         // 请求失败的处理
         ElMessage({
@@ -67,7 +68,7 @@ const requestInstance = <T = any>(config: AxiosRequestConfig): Promise<T> => {
       .then((res: AxiosResponse<BaseResponse>) => {
         const data = res.data;
         // 如果data.code为错误代码返回message信息
-        if (data.code != 1) {
+        if (data.code != 0) {
           ElMessage({
             message: data.message,
             type: 'error',
