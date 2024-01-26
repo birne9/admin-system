@@ -8,7 +8,7 @@
       </div>
       <div class="flex-center m05 color-dark-black">
          <i-ep-user></i-ep-user>
-         用户名
+         {{ userName }}
       </div>
       <div class="flex-center m05 color-dark-black pointer" @click="openSetting">
          <i-ep-setting></i-ep-setting>
@@ -28,6 +28,10 @@
 <script lant="ts" setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import {useUserStoreHook} from "@/store/user/index";
+
+const userStore = useUserStoreHook();
+const userName=ref(userStore.userName);
 const router = useRouter();
 const showSetting = ref(false);
 const openSetting = () => {
