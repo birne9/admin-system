@@ -21,6 +21,7 @@
 import { reactive } from "vue";
 import { User, Lock } from "@element-plus/icons-vue";
 import { useUserStore } from "@/store/user";
+import { useRouter } from "vue-router";
 const userStore = useUserStore();
 const userInfo = reactive({
     username: "birne9",
@@ -32,12 +33,17 @@ const rules = reactive({
     password: [{ required: true, message: "请输入密码", trigger: "blur" }],
 });
 
+const router = useRouter();
 const userLogin = () => {
-      userStore.storeUserLogin(userInfo).then((res) => {
-        console.log(res,'res')
-      },(err)=>{
-        console.log(err,'err')
-      });
+    userStore.storeUserLogin(userInfo).then(
+        (res) => {
+            console.log(res, "res");
+            router.push("/");
+        },
+        (err) => {
+            console.log(err, "err");
+        }
+    );
 };
 </script>
 <style lang="less" scope>
@@ -51,9 +57,11 @@ const userLogin = () => {
     .login-form {
         width: 300px;
         text-align: center;
-        h1{
-            margin-bottom:10px;
+
+        h1 {
+            margin-bottom: 10px;
         }
+
         .login-info {
             height: max-content;
 
