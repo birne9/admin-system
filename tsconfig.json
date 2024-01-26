@@ -4,7 +4,7 @@
         "target": "esnext",
         // 使用的ES版本
         "module": "esnext",
-        "allowJs": false,
+        "allowJs": true,
         // 用于选择模块解析策略，有'node'和'classic'两种类型
         "moduleResolution": "node",
         // 开启严格模式
