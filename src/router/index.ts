@@ -28,10 +28,20 @@ const router=createRouter({
     history:createWebHashHistory(),
     routes
 })
+router.addRoute(aboutRouter)
+
+// 无需权限登录的页面
+const noAuthRouter:Array<string>=['/login']
 
 router.beforeEach(async (_to,_from,next)=>{
     NProgress.start();
-    next()
+    
+    const isLogin=sessionStorage.getItem('userInfo')?true:false;
+    if(isLogin || noAuthRouter.includes(_to.path)){
+        next()
+    }else{
+        next('/login')
+    }
 })
 
 
