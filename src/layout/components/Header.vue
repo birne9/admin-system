@@ -1,8 +1,8 @@
 <!--
  * @Author: hzxOnlineOk
  * @Date: 2024-01-26 19:58:33
- * @LastEditors: 
- * @LastEditTime: 2024-01-29 20:54:51
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2024-01-29 22:32:17
  * @Description: 请填写简介
 -->
 <template>
@@ -35,10 +35,10 @@
 <script lant="ts" setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import {useUserStoreHook} from "@/store/user/index";
+// import {useUserStoreHook} from "@/store/user/index";
 
-const userStore = useUserStoreHook();
-const userName=ref(userStore.userName);
+// const userStore = useUserStoreHook();
+const userName='birne9';
 const router = useRouter();
 const showSetting = ref(false);
 const openSetting = () => {
