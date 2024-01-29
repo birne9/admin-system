@@ -1,3 +1,10 @@
+<!--
+ * @Author: hzxOnlineOk
+ * @Date: 2024-01-26 19:58:33
+ * @LastEditors: 
+ * @LastEditTime: 2024-01-29 20:54:51
+ * @Description: 请填写简介
+-->
 <template>
    <div class="header">
       <div class="flex-center">
@@ -37,6 +44,8 @@ const showSetting = ref(false);
 const openSetting = () => {
    showSetting.value = true;
 }
+
+const direction=ref('rtl')
 const loginOut = () => {
    // 退出登录
    showSetting.value = false;
