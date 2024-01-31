@@ -35,6 +35,10 @@ const rules = reactive({
 
 const router = useRouter();
 const userLogin = () => {
+    if(import.meta.env.PROD){
+        sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
+        return router.push("/") ;
+    }  
     userStore.storeUserLogin(userInfo).then(
         (res) => {
             console.log(res, "res");
