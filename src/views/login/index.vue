@@ -22,6 +22,7 @@ import { reactive } from "vue";
 import { User, Lock } from "@element-plus/icons-vue";
 import { useUserStore } from "@/store/user";
 import { useRouter } from "vue-router";
+import { ElMessage} from 'element-plus'
 const userStore = useUserStore();
 const userInfo = reactive({
     username: "birne9",
@@ -37,6 +38,10 @@ const router = useRouter();
 const userLogin = () => {
     if(import.meta.env.PROD){
         sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
+        ElMessage({
+            message: '登陆成功',
+            type: 'success',
+          });
         return router.push("/") ;
     }  
     userStore.storeUserLogin(userInfo).then(
